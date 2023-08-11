@@ -30,7 +30,7 @@ const createUser = async (req, res = response) => {
         const token = await triggerJwt(user.id, user.name);
 
 
-        res.status(400).json({
+        res.status(200).json({
             ok: true,
             uid: user.id,
             name: user.name,
