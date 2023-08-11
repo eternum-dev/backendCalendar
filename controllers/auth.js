@@ -75,7 +75,7 @@ const loginUser = async (req, res = response) => {
         // generar JWT 
         const token = await triggerJwt(user.id, user.name);
 
-        res.json({
+        res.status(200).json({
             ok: true,
             uid: user.id,
             name: user.name,
@@ -98,7 +98,7 @@ const reNewUser = async (req, res = response) => {
     const name = req.name;
     const token = await triggerJwt(uid, name);
 
-    res.json({
+    res.status(200).json({
         ok: true,
         uid,
         name,
