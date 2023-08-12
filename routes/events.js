@@ -13,7 +13,7 @@ router.use(validatejwt);
 
 
 //obtener eventos 
-router.get('/', getEvents);
+router.get('/:id', getEvents);
 
 //crear un nuevo eventos 
 router.post('/',
