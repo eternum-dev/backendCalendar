@@ -6,8 +6,7 @@ const Event = require("../models/Event");
 const getEvents = async (req, res = response) => {
 
     const events = await Event.find().populate('user');
-    
-    console.log(req.body);
+    git 
     try {
         if (!events) {
             return res.status(401).json({
@@ -43,7 +42,7 @@ const createEvent = async (req, res = response) => {
         if (!event) {
             return res.status(401).json({
                 ok: false,
-                msg: 'error'
+                msg: 'error al crear el evento'
             });
         }
 
@@ -82,7 +81,7 @@ const updateEvent = async (req, res = response) => {
         if (eventUser !== uid) {
             return res.status(404).json({
                 ok: false,
-                msj: 'no tiene privilegio de editar este evento'
+                msj: 'no tiene privilegio para editar este evento'
             });
         }
 
@@ -123,7 +122,7 @@ const deleteEvent = async (req, res = response) => {
         if (eventUser !== uid) {
             return res.status(404).json({
                 ok: false,
-                msg: 'no tienes los privilegios de borrar ese evento'
+                msg: 'no tienes los privilegios para borrar este evento'
             });
         }
 
