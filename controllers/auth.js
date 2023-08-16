@@ -39,8 +39,6 @@ const createUser = async (req, res = response) => {
 
     } catch (error) {
 
-        console.log(error);
-
         res.status(501).json({
             ok: false,
             msg: 'contactarse con el administración)'
@@ -60,7 +58,7 @@ const loginUser = async (req, res = response) => {
         if (!user) {
             return res.status(400).json({
                 ok: false,
-                msj: 'el email no registrado'
+                msg: 'el email no registrado'
             });
         }
         //  confirmar password
@@ -69,7 +67,7 @@ const loginUser = async (req, res = response) => {
         if (!validPassword) {
             return res.status(400).json({
                 ok: false,
-                msj: 'contraseña no incorrecta'
+                msg: 'contraseña no incorrecta'
             });
         }
         // generar JWT 
@@ -83,10 +81,9 @@ const loginUser = async (req, res = response) => {
         });
 
     } catch (error) {
-        console.log(error);
         res.status(500).json({
             ok: false,
-            msj: 'contacte con el administrador'
+            msg: 'contacte con el administrador'
         });
     }
 }
