@@ -25,7 +25,7 @@ const getEvents = async (req, res = response) => {
 
         res.status(500).json({
             ok: false,
-            msj: 'contactarse con el administrador'
+            msg: 'contactarse con el administrador'
         });
     }
 }
@@ -56,7 +56,7 @@ const createEvent = async (req, res = response) => {
 
         res.status(500).json({
             ok: false,
-            msj: 'contactarse con el admin'
+            msg: 'contactarse con el admin'
         });
     }
 }
@@ -74,14 +74,14 @@ const updateEvent = async (req, res = response) => {
         if (!event) {
             return res.status(404).json({
                 ok: false,
-                msj: 'no se encontró evento con ese id'
+                msg: 'no se encontró evento con ese id'
             });
         }
 
         if (eventUser !== uid) {
             return res.status(404).json({
                 ok: false,
-                msj: 'no tiene privilegio para editar este evento'
+                msg: 'no tiene privilegio para editar este evento'
             });
         }
 
@@ -97,7 +97,7 @@ const updateEvent = async (req, res = response) => {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msj: "contáctese con el administrador"
+            msg: "contáctese con el administrador"
         });
     }
 }
